@@ -2,6 +2,15 @@
 
 macOS용 멀티트랙 오디오 편집기. SwiftUI + AVFoundation, 외부 의존성 없음.
 
+## 다운로드
+
+[Releases](https://github.com/wqrvQ2WR/soripan/releases/latest)에서 `Soripan-x.y.z.zip`을 받아 압축을 풀고 `Soripan.app`을 응용 프로그램 폴더로 옮기면 됨. macOS 14 이상, 애플 실리콘/인텔 모두 지원.
+
+공증(notarize)을 받지 않은 앱이라 처음 열 때 "확인되지 않은 개발자" 경고가 뜸. 아래 둘 중 하나로 열면 됨.
+
+- Finder에서 앱을 우클릭 → 열기 → 열기 (안 되면 시스템 설정 → 개인정보 보호 및 보안 → "그래도 열기")
+- 터미널: `xattr -dr com.apple.quarantine /Applications/Soripan.app`
+
 ## 기능
 
 - 멀티트랙 타임라인: 클립 이동(트랙 간 이동 포함, 가장자리/재생헤드 스냅), 양끝 끌어서 트림, 페이드 인/아웃 핸들
@@ -33,7 +42,7 @@ macOS용 멀티트랙 오디오 편집기. SwiftUI + AVFoundation, 외부 의존
 macOS 14 이상, Xcode 명령줄 도구(Swift 5.9+) 필요.
 
 ```bash
-./build_app.sh              # Soripan.app 생성 (ad-hoc 서명)
+./build_app.sh              # Soripan.app 생성 (유니버설 바이너리, ad-hoc 서명)
 ditto Soripan.app /Applications/Soripan.app
 ```
 
